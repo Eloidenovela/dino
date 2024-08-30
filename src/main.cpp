@@ -8,9 +8,10 @@ int main() {
     b av;
     av.insert(10);
     av.insert(19);
-    av.remove(10);
 
-    std::cout << av.search(10) << std::endl;
+    std::cout << av.remove(9) << std::endl;
+
+    std::cout << av.search(9) << std::endl;
 
     std::cout << av.max_value().value() << std::endl;
 

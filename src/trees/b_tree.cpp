@@ -1,5 +1,6 @@
 #include "b_tree.hpp"
 #include "../util/trees.hpp"
+#include <exception>
 #include <iostream>
 
 namespace trees {
@@ -14,23 +15,22 @@ namespace trees {
                 return true;
             }
 
-            node* current_node_node = this->root;
+            node* current_node = this->root;
 
             while (true) {
-
-                if (current_node_node->value > value) {
-                    if (current_node_node->left == nullptr) {
-                        current_node_node->left = new_node;
+                if (current_node->value > value) {
+                    if (current_node->left == nullptr) {
+                        current_node->left = new_node;
                         return true; 
                     } else {
-                        current_node_node = current_node_node->left;
+                        current_node = current_node->left;
                     }
-                } else if (current_node_node->value < value) {
-                    if (current_node_node->right == nullptr) {
-                        current_node_node->right = new_node;
+                } else if (current_node->value < value) {
+                    if (current_node->right == nullptr) {
+                        current_node->right = new_node;
                         return true;
                     } else {
-                        current_node_node = current_node_node->right;
+                        current_node = current_node->right;
                     }
                 } else {
                     break;
@@ -47,24 +47,29 @@ namespace trees {
             } else {
                 node* current_node = root;
 
-                while (true) {
-                    if ((current_node->value) == value) {
-                        return true;
-                    } else {
-                        if ((current_node->value) > value) {
-                            if ((current_node->left) != nullptr) {
-                                current_node = current_node->left;
-                            } else {
-                                return false;
-                            }
-                        } else if ((current_node->value) < value) {
-                            if (current_node->right != nullptr) {
-                                current_node = current_node->right;
-                            } else {
-                                return false;
+                try {
+                    while (true) {
+                        if ((current_node->value) == value) {
+                            return true;
+                        } else {
+                            if ((current_node->value) > value) {
+                                if ((current_node->left) != nullptr) {
+                                    current_node = current_node->left;
+                                } else {
+                                    return false;
+                                }
+                            } else if ((current_node->value) < value) {
+                                if (current_node->right != nullptr) {
+                                    current_node = current_node->right;
+                                } else {
+                                    return false;
+                                }
                             }
                         }
                     }
+
+                } catch (const std::exception & e) {
+                    std::cerr << e.what() << std::endl;
                 }
             }
 
@@ -73,19 +78,18 @@ namespace trees {
 
         bool b::remove(int value) {
             node* current_node = root;
-            node* parent = nullptr;
+            node* parent = root;
 
             while (current_node and current_node->value != value) {
-                if (current_node)
+                if (current_node != nullptr) {
                     parent = current_node;
-
+                }
                 if ((current_node->value) > value) {
                     current_node = current_node->left;
-                } else {
+                } else if ((current_node->value) < value) {
                     current_node = current_node->right; 
                 }
             }
-            std::cout << (parent == nullptr) << std::endl; 
 
             if (current_node == nullptr) {
                 return false;
@@ -98,6 +102,8 @@ namespace trees {
                     parent->left = nullptr;
                 } else if (parent->right == current_node) {
                     parent->right = nullptr;
+                } else if (current_node == root) {
+                    root = nullptr;
                 }
 
             } else if ((current_node->left) and (current_node->right)) {
@@ -114,11 +120,13 @@ namespace trees {
                 
                 if (parent->left == current_node) {
                     parent->left = child;
-                } else {
+                } else if (parent->right == current_node) {
                     parent->right = child;
+                } else if (root == current_node) {
+                    root = child;
                 }
             }
-
+            
             return true;
         }
 
