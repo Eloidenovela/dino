@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
-
+.xmake
+build
 # Compiled Object files
 *.slo
 *.lo
