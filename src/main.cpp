@@ -1,19 +1,20 @@
 // #include "util/b_tree.hpp"
 #include <iostream>
-#include "trees/b_tree.hpp"
+// #include "trees/b_tree.hpp"
+#include "algorithm/sort/sort.hpp"
+#include "algorithm/search/search.hpp"
 
-using b = trees::b::b;
+// using b = trees::b::b;
 
 int main() {
-    b av;
-    av.insert(10);
-    av.insert(19);
 
-    std::cout << av.remove(9) << std::endl;
+    int arr[] = {9, 4, -2, 178, 17};
 
-    std::cout << av.search(9) << std::endl;
+    // std::cout << search::binary(arr, 0, 5, 1) << std::endl;
 
-    std::cout << av.max_value().value() << std::endl;
+    // algo::sort::insertion(arr, 5);
 
-    std::cout << av.min_value().value() << std::endl;
+    // for (auto& i: arr)
+    //     std::cout << i << " ";
+
 }
