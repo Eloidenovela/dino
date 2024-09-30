@@ -10,11 +10,11 @@ int main() {
 
     int arr[] = {9, 4, -2, 178, 17};
 
-    // std::cout << search::binary(arr, 0, 5, 1) << std::endl;
+    std::cout << search::binary(arr, 0, 5, 1) << std::endl;
 
-    // algo::sort::insertion(arr, 5);
+    algo::sort::insertion(arr, 5);
 
-    // for (auto& i: arr)
-    //     std::cout << i << " ";
+    for (auto& i: arr)
+        std::cout << i << " ";
     
 }
