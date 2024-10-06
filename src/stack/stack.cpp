@@ -7,7 +7,7 @@
 node* new_node(int value) {
     node* _new_node = (node*)malloc(sizeof(node));
     
-    if (_new_node != nullptr) {
+    if (!is_empty(_new_node)) {
         _new_node->value = value;
         _new_node->next = nullptr;
 
@@ -17,35 +17,37 @@ node* new_node(int value) {
     return nullptr;
 }
 
-void push(node **stack, int value) {
-    if (*stack == nullptr) {
+bool push(node **stack, int value) {
+    if (is_empty( *stack)) {
         *stack = new_node(value);
-        return;
+        return true;
     } else {
         node* aux = new_node(value);
         aux->next = *stack;
         *stack = aux;
+        return true;
     }
+
+    return false;
 }
 
 node* pop(node **stack) {
-    if (*stack == nullptr)
+    if (is_empty(*stack))
         return nullptr;
 
     node* aux = *stack;
     *stack = aux->next;
 
-    aux->next = nullptr;
-    return aux;
+    return new_node(aux->value); // novo no com ultimo/primeiro valor, mas nao ligado aos outros no da pilha
 }
 
 node* peek(node *stack) {
-    if (stack == nullptr) 
+    if (is_empty(stack)) 
         return nullptr;
 
-    node* last = stack;
-    last->next = nullptr;
-    return last;
+    // node* last = stack;
+    // last->next = nullptr;
+    return new_node(stack->value); // novo no, nao ligado aos outros nos da pilha
 }
 
 bool is_empty(node *stack) {

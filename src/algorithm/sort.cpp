@@ -1,5 +1,5 @@
-#include "sort.hpp"
-#include "../../util/util.hpp"
+#include "sort/sort.hpp"
+#include "../util/util.hpp"
 
 namespace algo::sort {
     
@@ -13,7 +13,7 @@ namespace algo::sort {
                     min_value = arr[j];
                     index = j; 
                 }
-            }
+            }  
 
             util::swap(arr[i], arr[index]);
         }

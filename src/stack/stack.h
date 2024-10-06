@@ -10,7 +10,7 @@ typedef struct node {
 } node;
 
 node* new_node(int value);
-void push(node** stack, int value);
+bool push(node** stack, int value);
 node* pop(node** stack);
 node* peek(node* stack);
 bool is_empty(node* stack);
