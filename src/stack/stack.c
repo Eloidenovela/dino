@@ -65,8 +65,3 @@ int size(node *stack) {
 
     return _size;
 }
-
-
-
-
-

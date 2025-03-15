@@ -1,6 +1,11 @@
-target("main")
+target("dino")
     set_kind("binary")
-    add_files("src/*.cpp", "src/*/*.cpp")
+    add_files(
+        "src/main.c",
+        "src/list/util/*.c",
+        "src/list/*.c"
+        -- "src/algorithm/*/*.cpp"
+    )
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

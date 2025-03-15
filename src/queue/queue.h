@@ -1,4 +1,5 @@
-#pragma once
+#ifndef QUEUE_H
+#define QUEUE_H
 
 typedef struct node {
     int value;
@@ -7,3 +8,5 @@ typedef struct node {
 
 node* new_node(int value);
 void push(node** queue, int value);
+
+#endif

@@ -1,7 +1,7 @@
 #include "search.hpp"
 
-namespace search {
-    
+namespace algo::search 
+{    
     bool binary(int arr[], int begin, int end, int value) {
         if (begin <= end) {
             int middle = (begin + end) / 2;
@@ -27,5 +27,4 @@ namespace search {
 
         return false;
     }
-
 }

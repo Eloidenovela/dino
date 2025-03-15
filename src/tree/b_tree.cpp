@@ -1,9 +1,9 @@
 #include "b_tree.hpp"
-#include "../util/trees.hpp"
+#include "../util/tree.hpp"
 #include <exception>
 #include <iostream>
 
-namespace trees::b {
+namespace tree::b {
 
     bool b::insert(int value) {
         node* new_node = node::new_node(value);
@@ -106,8 +106,8 @@ namespace trees::b {
 
         } else if ((current_node->left) and (current_node->right)) {
             // caso 2: no a ser removido tem dois filhos
-            using namespace util::trees;
-            int min_value = util::trees::b::min_value(current_node->right).value();
+            using namespace util::tree;
+            int min_value = util::tree::b::min_value(current_node->right).value();
             remove(min_value);
             current_node->value = min_value;
 
@@ -130,8 +130,8 @@ namespace trees::b {
 
     std::optional<int> b::min_value() const {
 
-        if (util::trees::b::min_value(root).has_value()) {
-            return util::trees::b::min_value(root).value();
+        if (util::tree::b::min_value(root).has_value()) {
+            return util::tree::b::min_value(root).value();
         }
 
         return std::nullopt;

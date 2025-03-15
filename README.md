@@ -11,9 +11,9 @@ This repository contains implementations of various data structures and algorith
 - Lists (Singly and Doubly Linked)
 - Stacks
 - Queues
-- Binary Trees
-- Binary Search Trees
-- AVL Trees
+- Binary tree
+- Binary Search tree
+- AVL tree
 - Hash Tables
 - Graphs
 
