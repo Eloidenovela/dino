@@ -1,26 +1,41 @@
-#include "list/static_list.h"
+// #include "list/static_list.h"
+// #include "queue/static_queue.h"
+#include <stdio.h>
+#include "list/linked_list/linked_list.h"
 
 int main() 
 {
-    list list;
-    make_list(&list, 100);
 
-    student student1 = {.name="Carlos", .surname="Novela", .test1=14.3, .test2=14.5};
-    push_front(&list, &student1);
-    student student2 = {.name="Harold", .surname="Novela", .test1=13.3, .test2=14.5};
-    push_front(&list, &student2);
-    student student3 = {.name="Eleuterio", .surname="Novela", .test1=15.3, .test2=14.5};
-    student student4 = {.name="Eloid", .surname="Novela", .test1=17.3, .test2=14.5};
-    insert(&list, &student3, 1);
-    push_back(&list, &student4);
-    // pop_front(&list);
-    // pop_front(&list);
+    node* list = NULL;
+    push_back(&list, 10);
+    push_back(&list, 50);
+    push_back(&list, 40);
+    push_back(&list, 30);
+    push_front(&list, 18);
+    push_front(&list, 183);
+    insert(&list, 255, 3);
+    insert(&list, 245, 3);
+
     // pop_back(&list);
+    // pop_back(&list);
+    // pop_front(&list);
+    // pop_front(&list);
+    pop(&list, 3);
 
-    // sort_by_average(&list);
-    // pop(&list, 2);
-    // print_all_in_list(&list);
-    student m = get_max_average(&list);
-    print_student(&m);
-    // printf("%i\n", size(&list));
+
+
+    print(list);
+    // queue queue;
+    // initializer(&queue);
+    // add(&queue, 10);
+    // add(&queue, 14);
+    // add(&queue, 89);
+    // add(&queue, 78);
+    // add(&queue, 8);
+
+    // while (queue.quantity != 0)
+    // {
+    //     printf("%i ", front(&queue));
+    //     pop(&queue);
+    // }
 }

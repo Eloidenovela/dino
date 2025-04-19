@@ -2,8 +2,10 @@ target("dino")
     set_kind("binary")
     add_files(
         "src/main.c",
-        "src/list/util/*.c",
-        "src/list/*.c"
+        -- "src/list/util/*.c",
+        -- "src/list/*.c"
+        "src/list/linked_list/*.c"
+        -- "src/queue/*.c"
         -- "src/algorithm/*/*.cpp"
     )
 
