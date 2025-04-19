@@ -24,7 +24,7 @@ namespace algo::sort
             for (int j = 0; j < i; j++) {
                 if (arr[i] < arr[j]) {
                     using namespace util;
-                    swap(arr[i], arr[j]);
+                    util::swap(arr[i], arr[j]);
                 }
             }
         }
@@ -36,8 +36,7 @@ namespace algo::sort
             for (int j = 0; j < size-1; j++) {
 
                 if (arr[j] > arr[j+1]) {
-                    using namespace util;
-                    swap(arr[j], arr[j+1]);
+                    util::swap(arr[j], arr[j+1]);
                 }
             }
         }
