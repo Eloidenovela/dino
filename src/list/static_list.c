@@ -4,7 +4,6 @@
 
 void make_list(list *list, int capacity)
 {
-    list->capacity = capacity;
     list->quantity = 0;   
 }
 
@@ -20,7 +19,7 @@ bool is_empty(const list *list)
 
 bool is_fully(const list *list)
 {
-    return (list->quantity == list->capacity);
+    return (list->quantity == MAX);
 }
 
 void print_student(const student *student)

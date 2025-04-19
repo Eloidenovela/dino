@@ -16,7 +16,6 @@ typedef struct list
 {
     student students[MAX];
     int quantity;
-    int capacity;
 } list;
 
 void make_list(list* list, int capacity);
